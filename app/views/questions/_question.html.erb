@@ -1,6 +1,13 @@
-<div class="mb-sm">
-  <%= question.body %>
-</div>
+<% if question.hidden? %>
+  <div class="mb-sm text-hidden">
+    Вопрос скрыт
+  </div>
+<% else %>
+  <div class="mb-sm">
+    <%= question.body %>
+  </div>
+<% end %>
+
 <div class="text-sm question-footer">
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
@@ -8,8 +15,12 @@
 
   <div>
     <%= link_to fa_icon('pencil'), edit_question_path(question), title: 'Изменить вопрос' %>
+    <% unless question.hidden? %>
+      <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :patch, title: 'Скрыть вопрос',
+      form: {data: {turbo_confirm: "Вы правда хотите скрыть этот вопрос?"}} %>
+    <% end %>
     <%= button_to fa_icon('trash-o'), question_path(question), method: :delete, title: 'Удалить вопрос',
     form: {data: {turbo_confirm: "Вы уверены что хотите удалить этот вопрос?"}} %>
+    </div>
   </div>
-</div>
 
