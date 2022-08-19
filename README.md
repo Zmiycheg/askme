@@ -1,24 +1,29 @@
-# README
+# AskMe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+AskMe is Ruby on Rails based web aplicattion.
+This clone of popular site askme.fm, which I use while learning Ruby on Rails.
 
-Things you may want to cover:
+## Application uses:
 
-* Ruby version
+**Ruby** version 3.1.2
+**Ruby on Rails** version 7.0.3
+**Postgresql** in Production
+**Sqlite3** in Development
 
-* System dependencies
+## Application launch
 
-* Configuration
+Copy the files to the folder, go to it in the terminal and enter the following commands:
 
-* Database creation
+```
+$ bundle install
+$ rails db:create
+$ rails db:migrate
+$ rails s
+```
+In a browser go to the address
 
-* Database initialization
+```
+http://localhost:3000/
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Enjoy!
