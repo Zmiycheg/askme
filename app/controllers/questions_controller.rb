@@ -3,9 +3,17 @@ class QuestionsController < ApplicationController
 
   def create
 
-    question = Question.create(question_params)
+    @question = Question.create(question_params)
 
-    redirect_to question_path(question), notice: 'Новый вопрос создан!'
+     if @question.valid?
+      redirect_to root_path, notice: 'Новый вопрос создан!'
+    else
+      flash.now[:alert] = 'Вопрос не может быть пустым!'
+
+      render :new
+    end
+
+
   end
 
   def update
@@ -37,7 +45,7 @@ class QuestionsController < ApplicationController
 
   def hide
     @question.update(hidden: true)
-    redirect_to questions_path, notice: 'Вопрос скрыт для просмотра!'
+    redirect_to questions_path, notice: 'Вопрос скрыт!'
   end
 
   private

@@ -1,12 +1,7 @@
-<% if question.hidden? %>
-  <div class="mb-sm text-hidden">
-    Вопрос скрыт
-  </div>
-<% else %>
-  <div class="mb-sm">
-    <%= question.body %>
-  </div>
-<% end %>
+<% hide_class = "text-hidden" if question.hidden? %>
+<div class="mb-sm <%= hide_class %>">
+  <%= question.body %>
+</div>
 
 <div class="text-sm question-footer">
   <div class="text-grey">
