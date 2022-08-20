@@ -5,11 +5,10 @@ class UsersController < ApplicationController
   end
 
   def create
-
     @user = User.new(user_params)
 
     if @user.save
-      log_in(@user)
+      session[:user_id] = @user.id
       redirect_to root_path, notice: 'Вы успешно зарегистрировались!'
     else
       flash.now[:alert] = 'Вы неправильно заполнили форму регистрации'
@@ -43,9 +42,7 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: 'Пользователь удален!'
   end
 
-
-
-   private
+  private
 
   def user_params
     params.require(:user).permit(
