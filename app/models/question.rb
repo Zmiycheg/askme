@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
+  belongs_to :user
 
-   validates :body, length: {minimum: 3, maximum: 280}, presence: true
-
+  validates :body, length: {maximum: 280}, presence: true
 end
