@@ -6,7 +6,8 @@
 }
 
 .form-text-area:focus,
-.form-text-field:focus {
+.form-text-field:focus,
+.form-color-field:focus {
   background-color: #fef0d7;
   outline-width: 0;
 }
@@ -14,4 +15,10 @@
 .form-text-area {
   box-sizing: border-box;
   width: 100%;
+}
+
+.form-color-field {
+  width: 50px;
+  border: 1px solid #d0d0d0;
+
 }

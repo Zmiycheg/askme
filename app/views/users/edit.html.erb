@@ -11,11 +11,13 @@
 
   <div class="mt">
     <%= form_with model: @user, data: {turbo: false} do |form| %>
-    <p><%= form.label :name, 'Имя' %></p>
+        <p><%= form.label :name, 'Имя' %></p>
     <p><%= form.text_field :name, class: 'form-text-field' %></p>
     <p class="mt"><%= form.label :nickname, 'Ник на сайте' %> </p>
     <p><%= form.text_field :nickname, class: 'form-text-field' %></p>
-    <p class="mt-lg text-sm">Если не хотите менять пароль - оставьте эти поля пустыми! %></p>
+    <p class="mt"><%= form.label :header_color, 'Цвет шапки сайта' %></p>
+    <p><%= form.color_field :header_color, class: 'form-color-field' %></p>
+    <p class="mt-lg">Если не хотите менять пароль - оставьте эти поля пустыми!</p>
     <p class="mt"><%= form.label :password, 'Пароль' %></p>
     <p><%= form.password_field :password, class: 'form-text-field' %></p>
     <p class="mt"><%= form.label :password_confirmation, 'Подтверждение пароля' %></p>
