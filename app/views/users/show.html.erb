@@ -1,9 +1,16 @@
 <div class="user-box">
   <h2 class="title-lg mt-lg"><%= @user.name %></h2>
-  <p class="text-bold mb md-lg"><%= @user.nickname %></p>
+
+  <% if current_user == @user %>
+    <p class="mt md-lg">
+      <%=link_to fa_icon('pencil'), edit_user_path(@user) %>
+    </p>
+  <% end %>
+
+  <p class="text-bold mt md-lg">@<%= @user.nickname %></p><br/>
 </div>
 
-<div class="container">
+<div class="container mt">
   <%= link_to "Спроси меня", new_question_path(user_id: @user.id), class: 'button button-yellow' %>
 </div>
 <div class="container">
