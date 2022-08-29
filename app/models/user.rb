@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  before_validation :downcase_nickname, :downcase_email
+  before_validation :downcase_atributes
 
   validates :email, presence: true, uniqueness:true,
     format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }
@@ -10,14 +10,12 @@ class User < ApplicationRecord
   validates :header_color, presence: true, format: {with: /\A#[0-9A-Fa-f]{3,6}\z/}
 
   has_many :questions, dependent: :delete_all
+  has_many :asked_questions, class_name: 'Question', foreign_key: :author_id, dependent: :nullify
 
   private
 
-  def downcase_nickname
-    nickname.downcase!
-  end
-
-  def downcase_email
-    email.downcase!
+  def downcase_atributes
+    nickname&.downcase!
+    email&.downcase!
   end
 end

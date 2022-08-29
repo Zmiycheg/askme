@@ -1,3 +1,6 @@
+<div class="mb-sm">
+  <p>Вопрос задал <%= question_author(question) %>
+</div>
 <% hide_class = "text-hidden" if question.hidden? %>
 <div class="mb-sm <%= hide_class %> text-br">
   <%= question.body %>
@@ -5,6 +8,7 @@
 
 <% if question.answer.present? %>
   <div class="mb-sm text-dark-red">
+    <br/>
     <%= question.answer %>
   </div>
 

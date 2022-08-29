@@ -21,8 +21,9 @@
         <p class="title-cm text-bold"><%= link_to "Ask me!", root_path %></p>
         <div>
           <% if current_user.present? %>
-            <%= link_to "@#{current_user.nickname}", user_path(current_user), class: 'mr-sm' %>
-            <%= button_to 'Выйти', session_path, method: :delete %>
+            <%= link_to "@#{current_user.nickname}", user_path(current_user),
+              title: 'Открыть профиль', class: 'mr-sm' %>
+            <%= button_to fa_icon('arrow-right'), session_path, method: :delete, title: 'Выйти' %>
           <% else %>
             <%= link_to 'Регистрация', new_user_path, class: 'button button-yellow mr-sm' %>
             <%= link_to 'Вход', new_session_path, class: 'button button-yellow' %>
