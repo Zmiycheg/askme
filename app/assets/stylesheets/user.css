@@ -10,3 +10,8 @@
 .user-box a {
   color: #fff;
 }
+
+.user-box-user a {
+  color: #fff;
+  text-decoration: none;
+}
