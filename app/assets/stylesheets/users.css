@@ -18,21 +18,21 @@
 }
 
 .users-box-user-bg0{
-  border: 3px solid #d00000;
+  background: #d00000;
 }
 
 .users-box-user-bg1 {
-  border: 3px solid #03071E;
+  background: #03071E;
 }
 
 .users-box-user-bg2 {
-  border: 3px solid #ffba08;
+  background: #ffba08;
 }
 
 .users-box-user-bg3{
-  border: 3px solid #6A040F;
+  background: #6A040F;
 }
 
 .users-box-user-bg4 {
-  border: 3px solid #f48c06;
+  background: #f48c06;
 }
