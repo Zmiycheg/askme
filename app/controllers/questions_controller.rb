@@ -9,6 +9,11 @@ class QuestionsController < ApplicationController
 
     if @question.save
       redirect_to user_path(@question.user), notice: 'Новый вопрос создан!'
+
+    elsif @question.errors[:body].to_s.include?('too long')
+      flash.now[:alert] = 'Вопрос слишком длинный!'
+
+      render :new
     else
       flash.now[:alert] = 'Вопрос не может быть пустым!'
 
@@ -43,7 +48,6 @@ class QuestionsController < ApplicationController
   def new
     @user = User.find_by!(nickname: params[:user_nickname])
     @question = Question.new(user: @user)
-
   end
 
   def edit
@@ -63,5 +67,4 @@ class QuestionsController < ApplicationController
   def set_question_for_current_user
     @question = current_user.questions.find(params[:id])
   end
-
 end

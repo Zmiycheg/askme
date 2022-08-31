@@ -16,6 +16,8 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 gem 'tzinfo-data'
 gem 'gravtastic'
+gem 'pry-rails'
+gem 'coderay'
 
 
 group :production do
